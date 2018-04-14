@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ instance.title}} | {{block.super}}{% endblock head_title %}
+
+<style>
+{% block style %}
+h1 {
+	color: #777777;
+}
+{% endblock style %}
+</style>
+
+{% block content %}
+<div class='col-sm-12 col-sm-offset-12'>
+<p><a href='/signout' class="btn btn-primary" role="button">Logout</a>      <a href='/upload' class="btn btn-primary" role="button">Upload</a>    
+</div>
+
+<div class='col-sm-8 col-sm-offset-4'>
+    <h1><a href='/home'>Telegenic Express </a></h1>
+</div>
+    {% if instance.image %}
+<video width="1000" height="620" controls>
+  <source src='{{ instance.image.url }}' type="video/mp4">
+</video>
+ 
+	{% endif %}
+	<h1>{{ title }}</h1>
+
+
+
+<p><font size="6">Description</font></p>
+	{{instance.content|linebreaks}}<br/>
+<div class='col-sm-6 col-sm-offset-8'>
+		
+
+		
+		
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="btn btn-primary" role="button">
+Share on Facebook
+</a><a href="https://twitter.com/home?status={{ share_string }}%100{{ request.build_absolute_uri }}" class="btn btn-primary" role="button">Share on twitter</a>
+		
+
+</div>
+
+
+{%endblock content %}
+
