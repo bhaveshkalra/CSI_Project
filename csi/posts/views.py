@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,get_object_or_404,redirect
+from django.db.models import Q
 
 
 from .forms import PostForm
@@ -36,6 +37,13 @@ def post_detail(request,id=None):
 
 def post_list(request):
 	queryset_list =Post.objects.all()#.order_by("-timestamp")
+	query = request.GET.get("q")
+	if query:
+		queryset_list = queryset_list.filter(
+				Q(title__icontains=query)|
+				Q(content__icontains=query)
+				).distinct()
+
 	paginator = Paginator(queryset_list, 15) # Show 25 contacts per page
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)
