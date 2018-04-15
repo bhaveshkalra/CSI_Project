@@ -129,18 +129,22 @@ h4{
 <p>Description:</p>
 <h4>something just like this</h4>
  </div>
+ </div>
+
  
+<div class="row">
+<div class="col-sm-6">
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+</div>
 
 <div class='col-sm-6 col-sm-offset-8'>
 		<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="btn btn-primary btn-lg" role="button">
 Share on Facebook
-</a><a href="https://twitter.com/home?status={{ share_string }}%100{{ request.build_absolute_uri }}" class="btn btn-primary btn-lg" role="button">Share on twitter</a>
-		
+</a><a href="https://twitter.com/home?status={{ share_string }}%100{{ request.build_absolute_uri }}" class="btn btn-primary btn-lg" role="button">Share on twitter</a></div>
 
 </div>
 </div>
 </div>
-
 
   
     
