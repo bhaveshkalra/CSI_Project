@@ -9,3 +9,4 @@ as description for it.
 
 Technologies used-django,bootstrap,html,css,js
 
+Contibutors: Bhavesh Kalra, Mayank SIngh Rajkumar, Shivam Kashaudhan
